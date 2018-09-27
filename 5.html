@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(even) {
+  background-color: black;
+  color:white;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+<h1 ng-model="CDparlortitle">{{CDparlortitle}}</h1>
+<h2 ng-model="HOaddress">{{HOaddress}}</h1>
+<table>
+	<tr>
+		<th><b>Title</th>
+		<th><b>Language</th>
+		<th><b>Price</th>
+	</tr>
+	<tr ng-repeat="x in details">
+		<td>{{ x.title }}</td>
+		<td>{{ x.language }}</td>
+		<td>{{ x.price }}</td>
+	</tr>
+</table>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope) {
+    $scope.CDparlortitle = "My CD Parlor";
+	$scope.HOaddress = "Bangalore";
+	$scope.details = [{title:"Meteora",language:"English",price:"2000"},
+					  {title:"Jab We Met",language:"Hindi",price:"9000"},
+					  {title:"Ratatouille",language:"French",price:"8000"},
+					  {title:"Lucia",language:"Kannada",price:"2000"},
+					  {title:"Charlie",language:"Malayalam",price:"1000"}];
+});
+</script>
+
+</body>
+</html>

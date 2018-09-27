@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+</style>
+
+<body ng-app="myApp">
+<h1>My CD Parlor</h1>
+<h2>Bangalore</h2>
+
+<p><a href="#/!">Home</a></p>
+
+<a href="#!viewAll">View All CDs</a>
+<a href="#!viewNew">View New CDs</a>
+<p> Top 5: </p>
+<div ng-controller="customersCtrl">
+<table>
+	<tr>
+		<th><b>Title</th>
+		<th><b>Language</th>
+		<th><b>Price</th>
+	</tr>
+	<tr ng-repeat="x in details">
+		<td>{{ x.title }}</td>
+		<td>{{ x.language }}</td>
+		<td>{{ x.price }}</td>
+	</tr>
+</table>
+</div>
+
+<div ng-view></div>
+</body>
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "7.html",
+		controller : "customersCtrl"
+    })
+    .when("/viewAll", {
+        templateUrl : "viewAll.htm",
+        controller : "viewAllCtrl"
+    })
+    .when("/viewNew", {
+        templateUrl : "viewNew.htm",
+        controller : "viewNewCtrl"
+    });
+});
+app.controller('customersCtrl', function($scope) {
+	$scope.details = [{title:"Meteora",language:"English",price:"2000"},
+					  {title:"Jab We Met",language:"Hindi",price:"9000"},
+					  {title:"Ratatouille",language:"French",price:"8000"},
+					  {title:"Lucia",language:"Kannada",price:"2000"},
+					  {title:"Charlie",language:"Malayalam",price:"1000"}];
+});
+app.controller("viewAllCtrl", function ($scope) {
+    $scope.details = [{title:"Meteora",language:"English",price:"2000"},
+					  {title:"Jab We Met",language:"Hindi",price:"9000"},
+					  {title:"Ratatouille",language:"French",price:"8000"},
+					  {title:"Lucia",language:"Kannada",price:"2000"},
+					  {title:"Charlie",language:"Malayalam",price:"1000"}
+					  {title:"Meteora",language:"English",price:"2000"},
+					  {title:"Jab We Met",language:"Hindi",price:"9000"},
+					  {title:"Ratatouille",language:"French",price:"8000"},
+					  {title:"Lucia",language:"Kannada",price:"2000"},
+					  {title:"Charlie",language:"Malayalam",price:"1000"}];
+});
+app.controller("viewNewCtrl", function ($scope) {
+    $scope.details = [{title:"Meteora",language:"English",price:"2000"},
+					  {title:"Jab We Met",language:"Hindi",price:"9000"},
+					  {title:"Ratatouille",language:"French",price:"8000"},
+					  {title:"Lucia",language:"Kannada",price:"2000"},
+					  {title:"Charlie",language:"Malayalam",price:"1000"}];
+});
+
+</script>
+
+</body>
+</html>

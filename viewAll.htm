@@ -1,0 +1,16 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<div ng-app="myApp" ng-controller="viewAllCtrl">
+<table>
+	<tr>
+		<th><b>Title</th>
+		<th><b>Language</th>
+		<th><b>Price</th>
+	</tr>
+	<tr ng-repeat="x in details">
+		<td>{{ x.title }}</td>
+		<td>{{ x.language }}</td>
+		<td>{{ x.price }}</td>
+	</tr>
+</table>
+</div>

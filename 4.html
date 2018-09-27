@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="cdcontroller.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="CDcontroller">
+<form name="myForm">
+<p>CD ID: <input type="text" ng-model="cdID"></p>
+<p>CD Title: <input type="text" ng-model="cdTitle"></p>
+<p>CD Price: <input type="text" ng-model="cdPrice"></p>
+<p>{{getAllDetails()}}</p>
+</form>
+</div>
+
+</body>
+</html>
